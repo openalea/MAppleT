@@ -29,18 +29,19 @@ if __name__ == '__main__':
           url=url,
           license=license,
 
-          namespace_packages=['openalea'],
-          create_namespaces=True,
-
           # Packages
           packages=['openalea',
                     'openalea.stocatree',
-                    'openalea.stocatree.tools'],
+                    'openalea.stocatree.tools',
+                    'openalea.stocatree_wralea',
+                    'openalea.stocatree_configuration_wralea'],
 
           package_dir={
               '': 'src',
               'openalea': 'src/openalea',
-              'openalea.stocatree': 'src/openalea/stocatree'},
+              'openalea.stocatree': 'src/openalea/stocatree',
+              'openalea.stocatree_wralea': 'src/openalea/stocatree_wralea',
+              'openalea.stocatree_configuration_wralea': 'src/openalea/stocatree_configuration_wralea'},
 
           package_data={'': ['*.lpy', '*.fset',
                              '*.s', '*.txt', '*pyd', '*.so'], },
@@ -56,8 +57,8 @@ if __name__ == '__main__':
           #ext_modules = ext_modules,
 
           entry_points={
-              "wralea": ["openalea.stocatree = stocatree_wralea",
-                         "openalea.stocatree.configuration = stocatree_configuration_wralea",
+              "wralea": ["openalea.stocatree = openalea.stocatree_wralea",
+                         "openalea.stocatree.configuration = openalea.stocatree_configuration_wralea",
                          ]
           },
 
